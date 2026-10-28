@@ -6,7 +6,7 @@
 <title>Dreamer&#x27;s Voyage worlds</title>
 <meta name="description" content="The lorebooks for the worlds I build on Voyage: who is who, where everything is, and how to play them.">
 <link rel="canonical" href="https://deaththegrim.github.io/">
-<meta name="theme-color" content="#3b82f6">
+<meta name="theme-color" content="#100d22">
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
@@ -17,32 +17,74 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<style>:root { color-scheme: dark; --bg: #0f1419; --surface: #161d24; --border: #2d3744; --text: #e2e8f0; --muted: #94a3b8;
-  --accent: #3b82f6; --accent-soft: #60a5fa; --on-accent: #ffffff; --button: #1d4ed8; }
+<style>:root { color-scheme: dark; --night: #100d22; --hat: #1d2457; --gold: #e9b64a; --ember: #ff5a2a;
+  --spiral: #3fc7ff; --paper: #f4eddc; --mute: #aeb0d2; --surface: #161433; --color-accent-hover: #f5cb6e;
+  --hairline: rgba(244, 237, 220, .14);
+  --font-show: Anton, Impact, "Arial Narrow", sans-serif; --font-ui: Barlow, "Segoe UI", Ubuntu, "DejaVu Sans", system-ui, sans-serif;
+  --font-hand: "Caveat Brush", "Comic Sans MS", cursive; --font-mono: "JetBrains Mono", "DejaVu Sans Mono", Consolas, monospace; }
+@font-face { font-family: "Anton"; font-weight: 400; font-display: swap; src: url(/fonts/anton-400.woff2) format("woff2"); }
+@font-face { font-family: "Barlow"; font-weight: 400; font-display: swap; src: url(/fonts/barlow-400.woff2) format("woff2"); }
+@font-face { font-family: "Barlow"; font-weight: 500; font-display: swap; src: url(/fonts/barlow-500.woff2) format("woff2"); }
+@font-face { font-family: "Barlow"; font-weight: 600 700; font-display: swap; src: url(/fonts/barlow-600.woff2) format("woff2"); }
+@font-face { font-family: "Caveat Brush"; font-weight: 400; font-display: swap; src: url(/fonts/caveat-brush-400.woff2) format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-weight: 400 800; font-display: swap; src: url(/fonts/jetbrains-mono.woff2) format("woff2"); }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.7 Inter, Ubuntu, "Noto Sans", "DejaVu Sans", system-ui, sans-serif; }
-main { max-width: 960px; margin: 0 auto; padding: 48px 16px; }
-h1 { font-size: 32px; line-height: 1.2; margin: 0 0 8px; }
-.lede { color: var(--muted); margin: 0 0 32px; }
-.sites { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr)); gap: 24px; }
-.site { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
-.site img { width: 100%; aspect-ratio: 1200 / 630; display: block; }   /* the whole card: its own title is part of the picture */
-.site div { padding: 8px 24px 24px; }
-.site h2 { font-size: 22px; margin: 16px 0 4px; }
-.site .world { color: var(--muted); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; margin: 0; }
-a { color: var(--accent-soft); text-decoration: none; }
+body { margin: 0; background: var(--night); color: var(--paper); font: 17px/1.6 var(--font-ui); }
+main { position: relative; overflow: hidden; max-width: 1080px; margin: 0 auto; padding: 48px 16px 64px; }
+.sigil { position: absolute; right: -60px; top: -20px; width: 380px; height: 380px; color: var(--gold); opacity: .07; pointer-events: none; }
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.bill { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 48px; align-items: center; margin: 0 0 56px; }
+.eye { display: flex; align-items: center; gap: 8px; margin: 0; font: 700 11px/1 var(--font-mono); letter-spacing: .18em;
+  text-transform: uppercase; color: var(--spiral); }
+.eye::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--spiral); box-shadow: 0 0 10px var(--spiral); }
+.patter { margin: 14px 0 4px; font: 28px/1.1 var(--font-hand); color: var(--gold); transform: rotate(-2deg); transform-origin: left center; }
+h1 { margin: 0; font: 400 clamp(52px, 9vw, 110px)/.86 var(--font-show); text-transform: uppercase; color: var(--paper); }
+h1 .hot { display: block; position: relative; width: fit-content; color: var(--ember); }
+h1 .hot::after { content: ""; position: absolute; left: 2%; right: -6%; bottom: -10px; height: 7px; background: var(--spiral);
+  transform: skewX(-24deg) rotate(-1.5deg); }
+.lede { max-width: 52ch; margin: 28px 0 0; color: var(--mute); }
+.host { position: relative; border: 3px solid var(--gold); background: var(--night); transform: rotate(-4deg); box-shadow: 6px 6px 0 var(--ember); }
+.host img { display: block; width: 100%; height: auto; }
+.bubble { position: absolute; left: -64px; top: -40px; max-width: 220px; margin: 0; padding: 8px 12px; font: 22px/1.05 var(--font-hand);
+  color: var(--night); background: var(--paper); transform: rotate(5deg); box-shadow: 4px 4px 0 var(--ember); }
+.sites { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 1fr)); gap: 40px 32px; }
+.site { position: relative; background: var(--surface); border: 1px solid var(--hairline); }
+.site .act { margin: 0; padding: 12px 20px; font: 700 11px/1 var(--font-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--gold);
+  border-bottom: 1px solid var(--hairline); }
+.site img { width: 100%; height: auto; aspect-ratio: 1200 / 630; display: block; }
+.site div { padding: 8px 20px 24px; }
+.site h2 { margin: 16px 0 4px; font: 400 32px/1 var(--font-show); letter-spacing: .02em; text-transform: uppercase; }
+.site h2 a { color: var(--paper); }
+.site p { color: var(--mute); }
+a { color: var(--spiral); text-decoration: none; }
 a:hover { text-decoration: underline; }
-a:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 2px; }
-.links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
-.links a { padding: 4px 12px; border-radius: 6px; border: 1px solid var(--border); }
-.links a.primary { background: var(--button); color: var(--on-accent); border-color: var(--button); }   /* 6.7:1 */
-@media (max-width: 700px) { .site div { padding: 8px 16px 16px; } }</style>
+a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 16px; }
+/* a ticket: the lorebooks' own (lorebook_house.ticket_css) */
+.ticket { --tk: var(--gold); position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px;
+  font: 400 17px/1 var(--font-show); letter-spacing: .06em; text-transform: uppercase; color: var(--night); border-radius: 0;
+  box-shadow: 4px 4px 0 var(--ember);
+  background: radial-gradient(circle at 0 50%, transparent 6px, var(--tk) 6.5px) left / 51% 100% no-repeat,
+              radial-gradient(circle at 100% 50%, transparent 6px, var(--tk) 6.5px) right / 51% 100% no-repeat; }
+.ticket small { font: 700 10px/1 var(--font-mono); letter-spacing: .12em; border-left: 2px dashed rgba(16, 13, 34, .5); padding-left: 8px; }
+.ticket.blue { --tk: var(--spiral); box-shadow: 4px 4px 0 var(--hat); }
+.ticket.hot { --tk: var(--ember); box-shadow: 4px 4px 0 var(--hat); }
+.ticket:hover { --tk: var(--color-accent-hover); color: var(--night); text-decoration: none; }
+.ticket.blue:hover, .ticket.hot:hover { --tk: var(--paper); }
+.ticket:focus-visible { outline: 3px solid var(--paper); outline-offset: 4px; }
+@media (max-width: 700px) {
+  .bill { grid-template-columns: 1fr; gap: 24px; }   /* phones: the host below the bill, his bubble beside him, nothing over the words */
+  .host { width: 140px; justify-self: end; margin-right: 8px; }
+  .bubble { left: auto; right: calc(100% + 16px); top: 24px; width: 170px; max-width: none; font-size: 17px; }
+  .site div { padding: 8px 16px 16px; }
+}</style>
 </head>
 <body>
+<svg class="sprite" aria-hidden="true" focusable="false"><symbol id="rose" viewBox="0 0 100 100"><g fill="currentColor"><polygon points="50,2 57,43 50,50 43,43"/><polygon points="98,50 57,57 50,50 57,43"/><polygon points="50,98 43,57 50,50 57,57"/><polygon points="2,50 43,43 50,50 43,57"/><polygon points="50,50 76,24 60,46" opacity=".7"/><polygon points="50,50 76,76 54,60" opacity=".7"/><polygon points="50,50 24,76 40,54" opacity=".7"/><polygon points="50,50 24,24 46,40" opacity=".7"/></g><circle cx="50" cy="50" r="31" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="50" cy="50" r="5" fill="currentColor"/></symbol></svg>
 <main>
-<h1>Dreamer&#x27;s Voyage worlds</h1>
-<p class="lede">The lorebooks for the worlds I build on Voyage: who is who, where everything is, and how to play them.</p>
-<div class="sites"><section class="site"><a href="/asagiri-isles-lore/" tabindex="-1" aria-hidden="true"><img src="/asagiri-isles-lore/card.jpg" alt="" loading="lazy"></a><div><p class="world">The Asagiri Isles</p><h2><a href="/asagiri-isles-lore/">Asagiri Lorebook</a></h2><p>Samurai, yokai and a dying emperor: every person, place, faction and creature of the isles, the maps, the quests, a character planner, a crafting bench, and exactly what to type to make things happen.</p><p class="links"><a class="primary" href="/asagiri-isles-lore/">Open the lorebook</a><a href="https://voyage.io/world/fTGj2UaAMVDK/the-asagiri-isles" rel="noopener">Play it on Voyage</a></p></div></section><section class="site"><a href="/avatar-lore/" tabindex="-1" aria-hidden="true"><img src="/avatar-lore/card.jpg" alt="" loading="lazy"></a><div><p class="world">Avatar: The Last Airbender - Dreamer</p><h2><a href="/avatar-lore/">Avatar Lorebook</a></h2><p>Benders, spirits and a hundred-year war: every person, place, faction and creature of the Four Nations, the map, the quests, a character planner, and exactly what to type to make things happen.</p><p class="links"><a class="primary" href="/avatar-lore/">Open the lorebook</a><a href="https://voyage.io/world/ZczT2modKwYv/avatar-the-last-airbender-dreamer" rel="noopener">Play it on Voyage</a></p></div></section><section class="site"><a href="/hunter-x-hunter-lore/" tabindex="-1" aria-hidden="true"><img src="/hunter-x-hunter-lore/card.jpg" alt="" loading="lazy"></a><div><p class="world">Hunter x Hunter - Dreamer</p><h2><a href="/hunter-x-hunter-lore/">Hunter x Hunter Lorebook</a></h2><p>Hunters, Nen and the Dark Continent at the edge of the map: every person, place, faction and creature of the known world, the map, the quests, a character planner, and exactly what to type to make things happen.</p><p class="links"><a class="primary" href="/hunter-x-hunter-lore/">Open the lorebook</a><a href="https://voyage.io/world/cdrn4Vxtx8-w/hunter-x-hunter-dreamer" rel="noopener">Play it on Voyage</a></p></div></section><section class="site"><a href="/fma-brotherhood-lore/" tabindex="-1" aria-hidden="true"><img src="/fma-brotherhood-lore/card.jpg" alt="" loading="lazy"></a><div><p class="world">Full Metal Alchemist Brotherhood - Dreamer</p><h2><a href="/fma-brotherhood-lore/">Fullmetal Alchemist Lorebook</a></h2><p>Alchemy, equivalent exchange and a country built on a circle: every person, place, faction and creature of Amestris, the map, the quests, a character planner, and exactly what to type to make things happen.</p><p class="links"><a class="primary" href="/fma-brotherhood-lore/">Open the lorebook</a><a href="https://voyage.io/world/5n4_2Ff1sKii/full-metal-alchemist-brotherhood-dreamer" rel="noopener">Play it on Voyage</a></p></div></section></div>
+<svg class="sigil" aria-hidden="true" focusable="false"><use href="#rose"/></svg>
+<header class="bill"><div><p class="eye">One night only, every night</p><p class="patter">Ladies, gentlemen, and that goat:</p><h1>Dreamer <span class="hot">presents</span></h1><p class="lede">The lorebooks for the worlds I build on Voyage: who is who, where everything is, and how to play them.</p></div><div class="host"><img src="/host.webp" width="360" height="480" alt="Dreamer, the host"><p class="bubble">One, two, three, and the one after!</p></div></header>
+<div class="sites"><section class="site"><p class="act">Act 01 · The Asagiri Isles</p><a href="/asagiri-isles-lore/" tabindex="-1" aria-hidden="true"><img src="/asagiri-isles-lore/card.jpg" alt="" width="1200" height="630" loading="lazy"></a><div><h2><a href="/asagiri-isles-lore/">Asagiri Lorebook</a></h2><p>Samurai, yokai and a dying emperor: every person, place, faction and creature of the isles, the maps, the quests, a character planner, a crafting bench, and exactly what to type to make things happen.</p><p class="links"><a class="ticket" href="/asagiri-isles-lore/">Open the lorebook</a><a class="ticket blue" href="https://voyage.io/world/fTGj2UaAMVDK/the-asagiri-isles" rel="noopener">Play it on Voyage</a></p></div></section><section class="site"><p class="act">Act 02 · Avatar: The Last Airbender - Dreamer</p><a href="/avatar-lore/" tabindex="-1" aria-hidden="true"><img src="/avatar-lore/card.jpg" alt="" width="1200" height="630" loading="lazy"></a><div><h2><a href="/avatar-lore/">Avatar Lorebook</a></h2><p>Benders, spirits and a hundred-year war: every person, place, faction and creature of the Four Nations, the map, the quests, a character planner, and exactly what to type to make things happen.</p><p class="links"><a class="ticket" href="/avatar-lore/">Open the lorebook</a><a class="ticket blue" href="https://voyage.io/world/ZczT2modKwYv/avatar-the-last-airbender-dreamer" rel="noopener">Play it on Voyage</a></p></div></section><section class="site"><p class="act">Act 03 · Hunter x Hunter - Dreamer</p><a href="/hunter-x-hunter-lore/" tabindex="-1" aria-hidden="true"><img src="/hunter-x-hunter-lore/card.jpg" alt="" width="1200" height="630" loading="lazy"></a><div><h2><a href="/hunter-x-hunter-lore/">Hunter x Hunter Lorebook</a></h2><p>Hunters, Nen and the Dark Continent at the edge of the map: every person, place, faction and creature of the known world, the map, the quests, a character planner, and exactly what to type to make things happen.</p><p class="links"><a class="ticket" href="/hunter-x-hunter-lore/">Open the lorebook</a><a class="ticket blue" href="https://voyage.io/world/cdrn4Vxtx8-w/hunter-x-hunter-dreamer" rel="noopener">Play it on Voyage</a></p></div></section><section class="site"><p class="act">Act 04 · Full Metal Alchemist Brotherhood - Dreamer</p><a href="/fma-brotherhood-lore/" tabindex="-1" aria-hidden="true"><img src="/fma-brotherhood-lore/card.jpg" alt="" width="1200" height="630" loading="lazy"></a><div><h2><a href="/fma-brotherhood-lore/">Fullmetal Alchemist Lorebook</a></h2><p>Alchemy, equivalent exchange and a country built on a circle: every person, place, faction and creature of Amestris, the map, the quests, a character planner, and exactly what to type to make things happen.</p><p class="links"><a class="ticket" href="/fma-brotherhood-lore/">Open the lorebook</a><a class="ticket blue" href="https://voyage.io/world/5n4_2Ff1sKii/full-metal-alchemist-brotherhood-dreamer" rel="noopener">Play it on Voyage</a></p></div></section></div>
 </main>
 </body>
 </html>
