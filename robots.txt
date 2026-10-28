@@ -3,3 +3,4 @@ Allow: /
 Sitemap: https://deaththegrim.github.io/asagiri-isles-lore/sitemap.xml
 Sitemap: https://deaththegrim.github.io/avatar-lore/sitemap.xml
 Sitemap: https://deaththegrim.github.io/hunter-x-hunter-lore/sitemap.xml
+Sitemap: https://deaththegrim.github.io/fma-brotherhood-lore/sitemap.xml
