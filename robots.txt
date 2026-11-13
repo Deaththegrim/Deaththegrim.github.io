@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /long-thaw-lore/data.json
+Disallow: /long-thaw-lore/thumbs/
 Sitemap: https://deaththegrim.github.io/asagiri-isles-lore/sitemap.xml
 Sitemap: https://deaththegrim.github.io/avatar-lore/sitemap.xml
 Sitemap: https://deaththegrim.github.io/hunter-x-hunter-lore/sitemap.xml
