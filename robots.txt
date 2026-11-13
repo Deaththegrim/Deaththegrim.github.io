@@ -1,8 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /long-thaw-lore/data.json
 Sitemap: https://deaththegrim.github.io/asagiri-isles-lore/sitemap.xml
 Sitemap: https://deaththegrim.github.io/avatar-lore/sitemap.xml
 Sitemap: https://deaththegrim.github.io/hunter-x-hunter-lore/sitemap.xml
 Sitemap: https://deaththegrim.github.io/fma-brotherhood-lore/sitemap.xml
 Sitemap: https://deaththegrim.github.io/monster-kingdom-lore/sitemap.xml
 Sitemap: https://deaththegrim.github.io/academie-sufletelor-lore/sitemap.xml
+Sitemap: https://deaththegrim.github.io/long-thaw-lore/sitemap.xml
